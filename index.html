@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Government Scholarship Portal</title>
+    <link rel="stylesheet" href="stylesheet.css" />
+    <script src="script.js" defer></script>
+  </head>
+
+  <body>
+    <header>
+      <h1>Government Scholarship Portal</h1>
+      <nav>
+        <a href="#home">Home</a> | <a href="#about">About</a> |
+        <a href="#scholarships">Scholarships</a>
+      </nav>
+    </header>
+
+    <hr />
+
+    <main>
+      <section id="home">
+        <h2>Welcome</h2>
+        <p>
+          Apply for government scholarships and track your application in one
+          place.
+        </p>
+        <p><a href="#scholarships">Browse scholarships</a></p>
+      </section>
+
+      <section id="about">
+        <h2>About the Program</h2>
+        <p>
+          Write a short description of the scholarship program and its goals
+          here.
+        </p>
+      </section>
+
+      <h2 class="section-title" id="scholarships">
+        Government &amp; National Scholarships
+      </h2>
+
+      <div class="cards">
+        <!--
+          Each card opens the popup. Edit the content inside
+          .card-details to change what the popup shows.
+        -->
+        <article class="card card-dost">
+          <h2>
+            <button type="button" class="card-open" aria-haspopup="dialog">
+              DOST Scholarships
+            </button>
+          </h2>
+          <p>
+            Offered through the Department of Science and Technology (DOST) for
+            priority courses in science, technology, engineering, and
+            mathematics (RA 7687, Merit, and JLSSS RA 10612).
+          </p>
+          <p class="card-cta" aria-hidden="true">View details</p>
+
+          <div class="card-details" hidden>
+            <h3>Overview</h3>
+            <p class="placeholder">
+              Placeholder: a short description of the DOST scholarship
+              programs goes here.
+            </p>
+            <h3>Quick facts</h3>
+            <dl class="facts">
+              <dt>Agency</dt>
+              <dd>Placeholder agency name</dd>
+              <dt>Coverage</dt>
+              <dd>Placeholder tuition and allowance details</dd>
+              <dt>Deadline</dt>
+              <dd>Placeholder date</dd>
+            </dl>
+            <h3>Eligibility</h3>
+            <ul class="placeholder">
+              <li>Placeholder requirement one</li>
+              <li>Placeholder requirement two</li>
+              <li>Placeholder requirement three</li>
+            </ul>
+            <h3>How to apply</h3>
+            <p class="placeholder">
+              Placeholder: step-by-step application instructions go here.
+            </p>
+            <button type="button" class="modal-action" disabled>
+              Apply (coming soon)
+            </button>
+          </div>
+        </article>
+
+        <article class="card card-ched">
+          <h2>
+            <button type="button" class="card-open" aria-haspopup="dialog">
+              CHED Financial Assistance
+            </button>
+          </h2>
+          <p>
+            The Commission on Higher Education provides Full and Half Merit
+            scholarships, PESFA (Private Education Student Financial
+            Assistance), Tulong Dunong, and UniFAST Tertiary Education Subsidy
+            (TES) programs.
+          </p>
+          <p class="card-cta" aria-hidden="true">View details</p>
+
+          <div class="card-details" hidden>
+            <h3>Overview</h3>
+            <p class="placeholder">
+              Placeholder: a short description of the CHED financial assistance
+              programs goes here.
+            </p>
+            <h3>Quick facts</h3>
+            <dl class="facts">
+              <dt>Agency</dt>
+              <dd>Placeholder agency name</dd>
+              <dt>Coverage</dt>
+              <dd>Placeholder tuition and allowance details</dd>
+              <dt>Deadline</dt>
+              <dd>Placeholder date</dd>
+            </dl>
+            <h3>Eligibility</h3>
+            <ul class="placeholder">
+              <li>Placeholder requirement one</li>
+              <li>Placeholder requirement two</li>
+              <li>Placeholder requirement three</li>
+            </ul>
+            <h3>How to apply</h3>
+            <p class="placeholder">
+              Placeholder: step-by-step application instructions go here.
+            </p>
+            <button type="button" class="modal-action" disabled>
+              Apply (coming soon)
+            </button>
+          </div>
+        </article>
+
+        <article class="card card-cebu">
+          <h2>
+            <button type="button" class="card-open" aria-haspopup="dialog">
+              Cebu City College Scholarship Program
+            </button>
+          </h2>
+          <p>
+            Provides financial aid, tuition grants, and allowances for poor but
+            deserving residents of Cebu City enrolled in accredited local
+            colleges and universities.
+          </p>
+          <p class="card-cta" aria-hidden="true">View details</p>
+
+          <div class="card-details" hidden>
+            <h3>Overview</h3>
+            <p class="placeholder">
+              Placeholder: a short description of the Cebu City scholarship
+              program goes here.
+            </p>
+            <h3>Quick facts</h3>
+            <dl class="facts">
+              <dt>Agency</dt>
+              <dd>Placeholder agency name</dd>
+              <dt>Coverage</dt>
+              <dd>Placeholder tuition and allowance details</dd>
+              <dt>Deadline</dt>
+              <dd>Placeholder date</dd>
+            </dl>
+            <h3>Eligibility</h3>
+            <ul class="placeholder">
+              <li>Placeholder requirement one</li>
+              <li>Placeholder requirement two</li>
+              <li>Placeholder requirement three</li>
+            </ul>
+            <h3>How to apply</h3>
+            <p class="placeholder">
+              Placeholder: step-by-step application instructions go here.
+            </p>
+            <button type="button" class="modal-action" disabled>
+              Apply (coming soon)
+            </button>
+          </div>
+        </article>
+
+        <article class="card card-tesda">
+          <h2>
+            <button type="button" class="card-open" aria-haspopup="dialog">
+              TESDA &amp; Local Government Partnerships
+            </button>
+          </h2>
+          <p>
+            Joint programs like the TESDA and University of Cebu partnership
+            offer full diplomas in fields like Hospitality and Management with
+            free tuition and living allowances.
+          </p>
+          <p class="card-cta" aria-hidden="true">View details</p>
+
+          <div class="card-details" hidden>
+            <h3>Overview</h3>
+            <p class="placeholder">
+              Placeholder: a short description of the TESDA partnership
+              programs goes here.
+            </p>
+            <h3>Quick facts</h3>
+            <dl class="facts">
+              <dt>Agency</dt>
+              <dd>Placeholder agency name</dd>
+              <dt>Coverage</dt>
+              <dd>Placeholder tuition and allowance details</dd>
+              <dt>Deadline</dt>
+              <dd>Placeholder date</dd>
+            </dl>
+            <h3>Eligibility</h3>
+            <ul class="placeholder">
+              <li>Placeholder requirement one</li>
+              <li>Placeholder requirement two</li>
+              <li>Placeholder requirement three</li>
+            </ul>
+            <h3>How to apply</h3>
+            <p class="placeholder">
+              Placeholder: step-by-step application instructions go here.
+            </p>
+            <button type="button" class="modal-action" disabled>
+              Apply (coming soon)
+            </button>
+          </div>
+        </article>
+      </div>
+    </main>
+
+    <!-- One popup, reused by every card (filled in by script.js) -->
+    <dialog id="scholarship-dialog" class="modal" aria-labelledby="modal-title">
+      <div class="modal-panel">
+        <div class="modal-header">
+          <h2 class="modal-title" id="modal-title"></h2>
+          <button type="button" class="modal-close" aria-label="Close">
+            &times;
+          </button>
+        </div>
+        <div class="modal-body"></div>
+      </div>
+    </dialog>
+
+    <footer>
+      <p>2026 Government Scholarship Portal. All rights reserved.</p>
+      <p>Version 1.0.1KimChi | Last updated: November 23, 2026</p>
+      <p>
+        <a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a> |
+        <a href="#">Accessibility</a>
+      </p>
+    </footer>
+  </body>
+</html>

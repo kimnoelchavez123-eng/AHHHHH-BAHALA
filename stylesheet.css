@@ -1,0 +1,677 @@
+/* ===== Colors (white -> sky blue, based on the reference image) ===== */
+:root {
+  --white: #ffffff;
+  --sky-1: #e3f2fc;
+  --sky-2: #c3e4fa;
+  --sky-3: #9fd0f5;
+  --blue: #2b6cb0;
+  --navy: #12355b;
+  --text: #1d3248;
+  --muted: #4f6b86;
+  --radius: 18px;
+  --shadow: 0 6px 18px rgba(43, 108, 176, 0.14);
+  --shadow-hover: 0 16px 32px rgba(43, 108, 176, 0.28);
+}
+
+/* ===== Base ===== */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family:
+    "Segoe UI",
+    system-ui,
+    -apple-system,
+    Roboto,
+    Arial,
+    sans-serif;
+  line-height: 1.65;
+  color: var(--text);
+  /* page background: same fade as the reference, white on top to light blue */
+  background: linear-gradient(
+    180deg,
+    var(--white) 0%,
+    var(--sky-1) 55%,
+    var(--sky-2) 100%
+  );
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+hr {
+  display: none;
+}
+
+a {
+  color: var(--blue);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:focus-visible {
+  outline: 3px solid var(--sky-3);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ===== Header / Nav ===== */
+header {
+  padding: 2.5rem 1.5rem 1.5rem;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  color: var(--navy);
+  letter-spacing: -0.02em;
+}
+
+nav {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.4rem;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid var(--sky-2);
+  border-radius: 999px;
+  color: transparent; /* hides the "|" separators in the HTML */
+  font-size: 0;
+}
+
+nav a {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  font-size: 1rem;
+  padding: 0.45rem 1.2rem;
+  border-radius: 999px;
+  font-weight: 600;
+  color: var(--navy);
+  transition: color 0.25s ease 0.1s;
+}
+
+nav a::before,
+nav a::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 0%;
+  background: var(--blue);
+  z-index: -1;
+  transition: width 0.35s ease;
+}
+
+nav a::before {
+  left: 0;
+}
+nav a::after {
+  right: 0;
+}
+
+/* ===== Main layout ===== */
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem 3rem;
+}
+
+main > section {
+  margin-bottom: 2.5rem;
+}
+
+.section-title {
+  scroll-margin-top: 1rem;
+  margin: 3rem 0 1.25rem;
+  font-size: clamp(1.5rem, 4vw, 2.1rem);
+  color: var(--navy);
+  text-align: center;
+}
+
+main h2 {
+  margin: 0 0 0.6rem;
+  font-size: 1.35rem;
+  color: var(--navy);
+  transition: color 0.25s ease;
+}
+
+main p {
+  margin: 0 0 0.8rem;
+}
+
+/* ===== Home ===== */
+#home {
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+  background: linear-gradient(180deg, var(--white) 0%, var(--sky-2) 100%);
+  border: 1px solid var(--sky-2);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+#home p a {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: inline-block;
+  margin-top: 0.4rem;
+  padding: 0.7rem 1.8rem;
+  background: var(--blue);
+  color: var(--white);
+  font-weight: 600;
+  border-radius: 999px;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+#home p a::before,
+#home p a::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 0%;
+  background: var(--navy);
+  z-index: -1;
+  transition: width 0.35s ease;
+}
+
+#home p a::before {
+  left: 0;
+}
+#home p a::after {
+  right: 0;
+}
+
+/* ===== About ===== */
+#about {
+  text-align: center;
+}
+/* ===== Scholarship boxes (white fading to blue) ===== */
+#scholarships ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+#scholarships li,
+.card {
+  background: linear-gradient(
+    180deg,
+    var(--white) 0%,
+    var(--sky-1) 45%,
+    var(--sky-3) 100%
+  );
+  /* taller than the box so the fade can slide on hover */
+  background-size: 100% 170%;
+  background-position: top;
+  border: 1px solid var(--sky-2);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background-position 0.45s ease,
+    border-color 0.3s ease;
+}
+
+#scholarships li {
+  padding: 1.4rem 1.2rem;
+  min-height: 110px;
+  display: flex;
+  align-items: flex-end; /* text sits in the bluer part of the fade */
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+
+.card {
+  padding: 1.5rem 1.4rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.card h2 {
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.7rem;
+  border-bottom: 2px solid rgba(43, 108, 176, 0.25);
+  transition:
+    border-color 0.3s ease,
+    color 0.25s ease;
+}
+
+.card p {
+  margin: 0;
+  color: var(--text);
+}
+
+/* ===== Hover effects ===== */
+
+/* Boxes: lift up, deeper shadow, blue fade slides up, border turns blue */
+#scholarships li:hover,
+.card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: var(--shadow-hover);
+  background-position: bottom;
+  border-color: var(--blue);
+}
+
+/* Card title turns blue and the underline gets stronger */
+.card:hover h2 {
+  color: var(--blue);
+  border-bottom-color: var(--blue);
+}
+
+/* Pressed feeling when clicking */
+#scholarships li:active,
+.card:active {
+  transform: translateY(-2px) scale(1.01);
+}
+
+/* Nav links: split doors */
+nav a:hover {
+  color: var(--white);
+  text-decoration: none;
+}
+
+nav a:hover::before,
+nav a:hover::after {
+  width: 50%;
+}
+
+/* Start button: split doors */
+#home p a:hover {
+  text-decoration: none;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(18, 53, 91, 0.35);
+}
+
+#home p a:hover::before,
+#home p a:hover::after {
+  width: 50%;
+}
+/* Footer links */
+footer a {
+  transition: color 0.2s ease;
+}
+
+footer a:hover {
+  color: var(--white);
+  text-decoration: underline;
+}
+
+/* ===== Footer ===== */
+footer {
+  padding: 2rem 1.5rem;
+  text-align: center;
+  background: var(--navy);
+  color: #d6e7f7;
+  font-size: 0.92rem;
+}
+
+footer p {
+  margin: 0.3rem 0;
+}
+
+footer a {
+  color: var(--sky-2);
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 600px) {
+  header {
+    padding-top: 1.75rem;
+  }
+
+  main {
+    padding: 0.5rem 1rem 2rem;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Touch screens have no hover, so skip the movement there */
+@media (hover: none) {
+  #scholarships li:hover,
+  .card:hover {
+    transform: none;
+  }
+}
+
+/* ===== Reduced motion ===== */
+@media (prefers-reduced-motion: reduce) {
+  nav a::before,
+  nav a::after,
+  #home p a::before,
+  #home p a::after {
+    transition: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  #scholarships li,
+  .card,
+  nav a,
+  #home p a {
+    transition: none;
+  }
+
+  #scholarships li:hover,
+  .card:hover,
+  nav a:hover,
+  #home p a:hover {
+    transform: none;
+  }
+}
+
+/* ===== Center the scholarships section ===== */
+#scholarships h2 {
+  text-align: center;
+}
+
+#scholarships li {
+  justify-content: center;
+  text-align: center;
+}
+
+/* ===== Logo behind each card ===== */
+.card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: auto 85%;
+  opacity: 0.18;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  transition:
+    opacity 0.3s ease,
+    transform 0.45s ease;
+}
+.card:hover::before {
+  opacity: 0.3;
+  transform: scale(1.08);
+}
+
+.card-dost::before {
+  background-image: url("images/DOST-1-825x550.jpg");
+}
+.card-ched::before {
+  background-image: url("images/CHED_Logo_New_20210406_RGB_border.png");
+}
+.card-cebu::before {
+  background-image: url("images/cebu_city_logo.jpg");
+}
+.card-tesda::before {
+  background-image: url("images/TESDA_OFFICIAL_LOGO.jpg");
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card::before {
+    transition: none;
+  }
+  .card:hover::before {
+    transform: none;
+  }
+}
+
+/* ===== Clickable card (whole card is the button) ===== */
+.card-open {
+  all: unset;
+  cursor: pointer;
+}
+
+/* stretched hit area: the invisible layer covers the entire card */
+.card-open::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.card:has(.card-open:focus-visible) {
+  outline: 3px solid var(--blue);
+  outline-offset: 3px;
+}
+
+.card-cta {
+  margin-top: auto !important;
+  padding-top: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--blue);
+}
+
+.card-cta::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-top: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 0.3s ease;
+}
+
+.card:hover .card-cta::after {
+  transform: translateX(4px) rotate(45deg);
+}
+
+/* ===== Info popup (dialog) ===== */
+html.modal-open {
+  overflow: hidden;
+}
+
+.modal {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: var(--text);
+  width: min(640px, calc(100% - 2rem));
+  max-width: none;
+  max-height: none;
+  overflow: visible;
+}
+
+.modal::backdrop {
+  background: rgba(18, 53, 91, 0.45);
+  backdrop-filter: blur(3px);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.modal.is-open::backdrop {
+  opacity: 1;
+}
+
+.modal-panel {
+  max-height: calc(100dvh - 2rem);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background: linear-gradient(180deg, var(--white) 0%, var(--sky-1) 100%);
+  border: 1px solid var(--sky-2);
+  border-radius: var(--radius);
+  box-shadow: 0 24px 60px rgba(18, 53, 91, 0.35);
+  opacity: 0;
+  transform: translateY(24px) scale(0.96);
+  transition:
+    opacity 0.35s ease,
+    transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.modal.is-open .modal-panel {
+  opacity: 1;
+  transform: none;
+}
+
+.modal-header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.4rem 1.5rem 1rem;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(6px);
+  border-bottom: 2px solid rgba(43, 108, 176, 0.2);
+}
+
+.modal-title {
+  margin: 0;
+  font-size: 1.4rem;
+  line-height: 1.3;
+  color: var(--navy);
+}
+
+.modal-close {
+  all: unset;
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--navy);
+  background: var(--sky-1);
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.modal-close:hover {
+  background: var(--blue);
+  color: var(--white);
+}
+
+.modal-close:focus-visible {
+  outline: 3px solid var(--sky-3);
+  outline-offset: 2px;
+}
+
+.modal-body {
+  padding: 1.25rem 1.5rem 1.6rem;
+}
+
+.modal-body h3 {
+  margin: 1.2rem 0 0.4rem;
+  font-size: 1.05rem;
+  color: var(--navy);
+}
+
+.modal-body h3:first-child {
+  margin-top: 0;
+}
+
+.modal-body p {
+  margin: 0 0 0.6rem;
+}
+
+.modal-body ul {
+  margin: 0 0 0.6rem;
+  padding-left: 1.2rem;
+}
+
+.modal-body .placeholder {
+  color: var(--muted);
+  font-style: italic;
+}
+
+.facts {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.35rem 1rem;
+  margin: 0 0 0.6rem;
+  padding: 0.9rem 1rem;
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid var(--sky-2);
+  border-radius: 12px;
+}
+
+.facts dt {
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.facts dd {
+  margin: 0;
+  color: var(--muted);
+}
+
+.modal-action {
+  margin-top: 1.2rem;
+  padding: 0.7rem 1.8rem;
+  border: 0;
+  border-radius: 999px;
+  font: inherit;
+  font-weight: 600;
+  background: var(--blue);
+  color: var(--white);
+}
+
+.modal-action:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* phones: popup slides up from the bottom like a sheet */
+@media (max-width: 600px) {
+  .modal {
+    width: 100%;
+    margin: auto 0 0;
+  }
+
+  .modal-panel {
+    max-height: 90dvh;
+    border-radius: var(--radius) var(--radius) 0 0;
+    transform: translateY(40px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .modal::backdrop,
+  .modal-panel,
+  .modal-close,
+  .card-cta::after {
+    transition: none;
+  }
+}
